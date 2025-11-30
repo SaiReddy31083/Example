@@ -1,7 +1,6 @@
 {
-  "buildCommand": "cd ject && npm install && npm run build && cd .. && mkdir -p public && cp -r ject/dist/* public/",
-  "outputDirectory": "public",
-  "regions": ["iad1"],
+  "buildCommand": "cd ject && npm install && npm run build",
+  "outputDirectory": "ject/dist",
   "env": {
     "REACT_APP_API_URL": "@react_app_api_url"
   },
