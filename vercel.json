@@ -1,17 +1,11 @@
 {
-  "buildCommand": "cd ject && npm install && npm run build",
-  "outputDirectory": "dist",  "regions": ["iad1"],
-  "functions": {
-    "api/**/*.js": {
-      "memory": 1024,
-      "maxDuration": 60
-    }
-  },
+  "buildCommand": "cd ject && npm install && npm run build && cd .. && mkdir -p public && cp -r ject/dist/* public/",
+  "outputDirectory": "public",
+  "regions": ["iad1"],
   "env": {
     "REACT_APP_API_URL": "@react_app_api_url"
   },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
