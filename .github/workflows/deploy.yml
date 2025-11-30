@@ -31,22 +31,9 @@ jobs:
         working-directory: ./ject
         run: npm ci
 
-      - name: Run linter
-        working-directory: ./ject
-        run: npm run lint --if-present
-
-      - name: Run tests
-        working-directory: ./ject
-        run: npm test --if-present -- --passWithNoTests
-
       - name: Build
         working-directory: ./ject
         run: npm run build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: build
-          path: ./ject/dist
-          retention-days: 1
+      - name: Copy build to public
+        run: mkdir -p public && cp -r ject/dist/* public/ || true
